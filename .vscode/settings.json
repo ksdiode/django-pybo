@@ -19,6 +19,7 @@
 
   "unibeautify.enabled": true,
   "[django-html]": {
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true
   }
 }
