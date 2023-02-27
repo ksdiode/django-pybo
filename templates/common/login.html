@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
   <div class="mx-auto auth-form">
@@ -19,10 +20,12 @@
       </div>
     {% endif %}
 
-    {% include 'form_errors.html' %}
+    {% comment %} {% include 'form_errors.html' %} {% endcomment %}
 
     <form method="post" class="post-form">
       {% csrf_token %}
+      {% bootstrap_form form %}
+      {% comment %} 
       <div class="form-group">
         <label for="username">
           <i class="fa-solid fa-user"></i>
@@ -35,7 +38,8 @@
           비밀번호</label>
         <input type="password" class="form-control" name="password" id="password" value="{{ form.password.value|default_if_none:'' }}">
       </div>
-
+       {% endcomment %}
+      
       <button type="submit" class="btn btn-primary w-100 mb-1">
         <i class="fa-solid fa-check"></i>
         로그인</button>

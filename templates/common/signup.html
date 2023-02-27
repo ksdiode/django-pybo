@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load bootstrap4 %}
+
 {% block content %}
   <div style="width:500px" class="mx-auto">
     <div class="row my-3">
@@ -15,6 +17,10 @@
 
     <form method="post" class="post-form">
       {% csrf_token %}
+
+      {% bootstrap_form form%}
+
+      {% comment %} 
       {% include "form_errors.html" %}
       <div class="form-group">
         <label for="username">사용자 이름</label>
@@ -32,9 +38,10 @@
         <label for="email">이메일</label>
         <input type="text" class="form-control" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}">
       </div>
-      <button type="submit" class="btn btn-primary">
-        <i class="fa-solid fa-check"></i>
-        생성하기</button>
-    </form>
-  </div>
+       {% endcomment %}
+    <button type="submit" class="btn btn-primary">
+      <i class="fa-solid fa-check"></i>
+      생성하기</button>
+  </form>
+</div>
 {% endblock %}
