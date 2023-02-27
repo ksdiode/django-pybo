@@ -69,6 +69,12 @@
           </div>
         </div>
 
+        {% if request.user == answer.author %}
+          <div class="my-3">
+            <a href="#" class="btn btn-sm btn-outline-secondary">수정</a>
+          </div>
+        {% endif %}
+
       </div>
     </div>
   {% endfor %}
