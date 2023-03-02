@@ -24,7 +24,10 @@
       <!-- 추천 영역-->
       <div class="bg-light text-center p-3 border font-weight-bolder mb-1">
         {{question.voter.count}}</div>
-      <a href="#" data-uri="{% url 'pybo:vote_question' question.id  %}" class="recommend btn btn-sm btn-secondary btn-block my-1">추천</a>
+      <a href="{% url 'pybo:vote_question' question.id  %}" data-uri="{% url 'pybo:vote_question' question.id  %}" class="recommend btn btn-sm btn-secondary btn-block my-1">
+        {% has_vote question user %}
+        추천
+      </a>
     </div>
 
     <div class="col-11">
@@ -95,11 +98,11 @@
         }
       });
 
-      $('.recommend').on('click', function () {
-        if (confirm('정말로 추천하시겠습니까?')) {
-          location.href = $(this).data('uri');
-        }
-      });
+      // $('.recommend').on('click', function () {
+      //  if (confirm('정말로 추천하시겠습니까?')) {
+      //    location.href = $(this).data('uri');
+      //  }
+      // });
 
       console.log('click 이벤트 핸들러 등록 완료');
     });

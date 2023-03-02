@@ -14,7 +14,13 @@ def vote_question(request, question_id):
     if request.user == question.author:
         messages.error(request, '본인이 작성한 글은 추천할 수 없습니다')
     else:
-        question.voter.add(request.user)
+        # question.voter.add(request.user)
+        if(question.voter.contains(request.user)):
+            question.voter.remove(request.user)
+        else:
+            question.voter.add(request.user)
+            
+
     return redirect('pybo:detail', question_id=question.id)
 
 
