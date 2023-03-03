@@ -34,5 +34,10 @@ def vote_answer(request, answer_id):
     if request.user == answer.author:
         messages.error(request, '본인이 작성한 글은 추천할수 없습니다')
     else:
-        answer.voter.add(request.user)
+        # answer.voter.add(request.user)
+        
+        if(answer.voter.contains(request.user)):
+            answer.voter.remove(request.user)
+        else:
+            answer.voter.add(request.user)
     return redirect('pybo:detail', question_id=answer.question.id)

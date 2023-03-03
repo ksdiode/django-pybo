@@ -10,6 +10,9 @@ class Question(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
 
     voter = models.ManyToManyField(User, related_name='voter_question')
+    
+    
+    
     def __str__(self):
         return f'{self.id} {self.subject}'
 

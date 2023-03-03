@@ -83,6 +83,15 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
+    
+#   'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'HOST': 'localhost',       # 데이터베이스 서버 IP
+#     'PORT': '3306',            # 포트번호
+#     'NAME': 'pybo_db',    # 데이터베이스 명
+#     'USER': 'iot',             # 데이터베이스 사용자 ID
+#     'PASSWORD': '1234'         # 비밀번호
+#   }
 }
 
 

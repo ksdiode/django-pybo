@@ -52,5 +52,12 @@ def detail(request, question_id):
     pybo 내용 출력
     """
     question = get_object_or_404(Question, pk=question_id)
-    context = {'question': question}
+    if question.voter.contains(request.user) :
+        voted = True
+    else:
+        voted = False 
+    context = {
+        'question': question,
+        'voted': voted
+    }
     return render(request, 'pybo/question_detail.html', context)
